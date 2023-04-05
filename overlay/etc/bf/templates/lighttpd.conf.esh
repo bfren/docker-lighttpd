@@ -14,26 +14,26 @@ var.statedir = "/var/lib/lighttpd"
 # All other modules should only be loaded if necessary.
 # NOTE: the order of modules is important.
 server.modules = (
-#    "mod_rewrite",
-#    "mod_redirect",
-#    "mod_alias",
+    <% if [ "${LIGHTTPD_MOD_REWRITE-}" = "1" ] ; then -%>"mod_rewrite",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_REDIRECT-}" = "1" ] ; then -%>"mod_redirect",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_ALIAS-}" = "1" ] ; then -%>"mod_alias",<% fi %>
     "mod_access",
-#    "mod_cml",
-#    "mod_trigger_b4_dl",
-#    "mod_auth",
-#    "mod_status",
-#    "mod_setenv",
-#    "mod_proxy",
-#    "mod_simple_vhost",
-#    "mod_evhost",
-#    "mod_userdir",
-#    "mod_deflate",
-#    "mod_ssi",
-#    "mod_usertrack",
-#    "mod_expire",
-#    "mod_secdownload",
-#    "mod_rrdtool",
-#    "mod_webdav",
+    <% if [ "${LIGHTTPD_MOD_CML-}" = "1" ] ; then -%>"mod_cml",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_TRIGGER_B4_DL-}" = "1" ] ; then -%>"mod_trigger_b4_dl",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_AUTH-}" = "1" ] ; then -%>"mod_auth",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_STATUS-}" = "1" ] ; then -%>"mod_status",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_SETENV-}" = "1" ] ; then -%>"mod_setenv",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_PROXY-}" = "1" ] ; then -%>"mod_proxy",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_SIMPLE_VHOST-}" = "1" ] ; then -%>"mod_simple_vhost",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_EVHOST-}" = "1" ] ; then -%>"mod_evhost",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_USERDIR-}" = "1" ] ; then -%>"mod_userdir",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_DEFLATE-}" = "1" ] ; then -%>"mod_deflate",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_SSI-}" = "1" ] ; then -%>"mod_ssi",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_USERTRACK-}" = "1" ] ; then -%>"mod_usertrack",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_EXPIRE-}" = "1" ] ; then -%>"mod_expire",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_SECDOWNLOAD-}" = "1" ] ; then -%>"mod_secdownload",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_RRDTOOL-}" = "1" ] ; then -%>"mod_rrdtool",<% fi %>
+    <% if [ "${LIGHTTPD_MOD_WEBDAV-}" = "1" ] ; then -%>"mod_webdav",<% fi %>
     "mod_accesslog"
 )
 # }}}
@@ -59,8 +59,7 @@ server.errorlog      = var.logdir  + "/error.log"
 # log errors to syslog instead
 #   server.errorlog-use-syslog = "enable"
 
-server.indexfiles    = ("index.php", "index.html",
-						"index.htm", "default.htm")
+server.indexfiles    = ("index.html")
 
 # server.tag           = "lighttpd"
 
