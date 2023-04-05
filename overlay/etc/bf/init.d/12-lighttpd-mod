@@ -1,0 +1,21 @@
+#!/command/with-contenv sh
+
+set -euo pipefail
+export BF_E=`basename ${0}`
+
+
+#======================================================================================================================
+# Install Lighttpd modules.
+#======================================================================================================================
+
+bf-echo "Installing Lighttpd modules..."
+
+if [ "${LIGHTTPD_MOD_AUTH}" = "1" ] ; then
+    bf-debug "Installing AUTH module..."
+    apk add --no-cache lighttpd-mod_auth
+fi
+
+if [ "${LIGHTTPD_MOD_WEBDAV}" = "1" ] ; then
+    bf-debug "Installing WebDAV module..."
+    apk add --no-cache lighttpd-mod_webdav
+fi
