@@ -152,9 +152,10 @@ url.access-deny = ("~", ".inc")
 
 # {{{ mod_status
 # see status.txt
-#
-# status.status-url  = "/server-status"
-# status.config-url  = "/server-config"
+<% if [ "${LIGHTTPD_MOD_STATUS-}" = "1" ] ; then %>
+status.status-url  = "/server-status"
+status.config-url  = "/server-config"
+<% fi -%>
 # }}}
 
 # {{{ mod_simple_vhost
