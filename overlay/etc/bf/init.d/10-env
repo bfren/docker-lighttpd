@@ -1,0 +1,16 @@
+#!/command/with-contenv sh
+
+set -euo pipefail
+export BF_E=`basename ${0}`
+
+
+#======================================================================================================================
+# Add environment variables.
+#======================================================================================================================
+
+bf-env "LIGHTTPD_LIB" "${BF_LIB}/lighttpd"
+
+bf-env "LIGHTTPD_BASE" "${LIGHTTPD_BASE_OVERRIDE:-/www}"
+bf-env "LIGHTTPD_LOG" "/var/log/lighttpd"
+
+bf-env "LIGHTTPD_CONF" "/etc/lighttpd/lighttpd.conf"

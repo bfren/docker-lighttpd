@@ -1,0 +1,14 @@
+#!/command/with-contenv sh
+
+set -euo pipefail
+export BF_E="${PWD##*/}/$(basename ${0})"
+
+
+#======================================================================================================================
+# Run vsftpd server.
+#======================================================================================================================
+
+[[ ! -f ${FTPS_VSFTPD_CONF} ]] && bf-error "vsftpd configuration file not found."
+
+bf-echo "Starting vsftpd."
+vsftpd ${FTPS_VSFTPD_CONF}

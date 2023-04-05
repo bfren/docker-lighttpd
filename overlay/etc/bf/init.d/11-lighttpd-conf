@@ -1,0 +1,13 @@
+#!/command/with-contenv sh
+
+set -euo pipefail
+export BF_E=`basename ${0}`
+
+
+#======================================================================================================================
+# Create Lighttpd configuration.
+#======================================================================================================================
+
+bf-echo "Generating Lighttpd config..."
+
+bf-esh ${BF_TEMPLATES}/lighttpd.conf.esh ${LIGHTTPD_CONF}
