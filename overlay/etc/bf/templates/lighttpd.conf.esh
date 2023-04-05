@@ -22,7 +22,7 @@ server.modules = (
     <% if [ "${LIGHTTPD_MOD_TRIGGER_B4_DL-}" = "1" ] ; then -%>"mod_trigger_b4_dl",<% fi %>
     <% if [ "${LIGHTTPD_MOD_AUTH-}" = "1" ] ; then -%>"mod_auth",<% fi %>
     <% if [ "${LIGHTTPD_MOD_STATUS-}" = "1" ] ; then -%>"mod_status",<% fi %>
-    <% if [ "${LIGHTTPD_MOD_SETENV-}" = "1" ] ; then -%>"mod_setenv",<% fi %>
+    "mod_setenv",
     <% if [ "${LIGHTTPD_MOD_PROXY-}" = "1" ] ; then -%>"mod_proxy",<% fi %>
     <% if [ "${LIGHTTPD_MOD_SIMPLE_VHOST-}" = "1" ] ; then -%>"mod_simple_vhost",<% fi %>
     <% if [ "${LIGHTTPD_MOD_EVHOST-}" = "1" ] ; then -%>"mod_evhost",<% fi %>
