@@ -1,2 +1,3 @@
 /etc/lighttpd www:www 0400 0555
 /var/lib/lighttpd www:www 0644 0755
+/var/log/lighttpd www:www 0644 0755
