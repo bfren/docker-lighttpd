@@ -3,7 +3,7 @@
 IMAGE=`cat VERSION`
 
 docker buildx build \
-    --build-arg BF_IMAGE=nginx \
+    --build-arg BF_IMAGE=lighttpd \
     --build-arg BF_VERSION=${IMAGE} \
     -f Dockerfile \
     -t lighttpd-dev \
