@@ -11,4 +11,4 @@ export BF_E="${PWD##*/}/$(basename ${0})"
 [[ ! -f ${LIGHTTPD_CONF} ]] && bf-error "Lighttpd configuration file not found."
 
 bf-echo "Starting Lighttpd."
-lighttpd -f ${LIGHTTPD_CONF} -D
+lighttpd -tt -f ${LIGHTTPD_CONF} && lighttpd -D -f ${LIGHTTPD_CONF}
