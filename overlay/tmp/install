@@ -35,4 +35,20 @@ bf-done
 # Cleanup.
 #======================================================================================================================
 
+bf-echo "Cleaning up default Lighttpd configuration and files."
+rm -rf /var/www/*
+
+
+#======================================================================================================================
+# Create and link Lighttpd directories.
+#======================================================================================================================
+
+bf-echo "Creating Lighttpd directories."
+
+mkdir -p /var/lib/lighttpd
+mkdir -p /var/log/lighttpd
+
+bf-echo "Linking /www to /var/www/localhost."
+ln -s /www /var/www/localhost
+
 bf-done
