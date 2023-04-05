@@ -17,23 +17,23 @@ jobs:
         run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
         shell: bash
       -
-        name: Read VSFTPD version - major
+        name: Read Lighttpd version - major
         uses: bfren/read-file@v2
         with:
-          file: ./overlay/tmp/VSFTPD_MAJOR
-        id: vsftpd_major
+          file: ./overlay/tmp/LIGHTTPD_MAJOR
+        id: lighttpd_major
       -
-        name: Read VSFTPD version - minor
+        name: Read Lighttpd version - minor
         uses: bfren/read-file@v2
         with:
-          file: ./overlay/tmp/VSFTPD_MINOR
-        id: vsftpd_minor
+          file: ./overlay/tmp/LIGHTTPD_MINOR
+        id: lighttpd_minor
       -
-        name: Read VSFTPD version - revision
+        name: Read Lighttpd version - revision
         uses: bfren/read-file@v2
         with:
-          file: ./overlay/tmp/VSFTPD_REVISION
-        id: vsftpd_revision
+          file: ./overlay/tmp/LIGHTTPD_REVISION
+        id: lighttpd_revision
       -
         name: Read image version
         uses: bfren/read-file@v2
@@ -75,16 +75,16 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/ftps:latest
-            bfren/ftps:${{ steps.version_major.outputs.contents }}
-            bfren/ftps:${{ steps.version_minor.outputs.contents }}
-            bfren/ftps:${{ steps.version.outputs.contents }}
-            bfren/ftps:vsftpd${{ steps.vsftpd_major.outputs.contents }}
-            bfren/ftps:vsftpd${{ steps.vsftpd_major.outputs.contents }}-${{ steps.version.outputs.contents }}
-            bfren/ftps:vsftpd${{ steps.vsftpd_minor.outputs.contents }}
-            bfren/ftps:vsftpd${{ steps.vsftpd_minor.outputs.contents }}-${{ steps.version.outputs.contents }}
-            bfren/ftps:vsftpd${{ steps.vsftpd_revision.outputs.contents }}
-            bfren/ftps:vsftpd${{ steps.vsftpd_revision.outputs.contents }}-${{ steps.version.outputs.contents }}
+            bfren/lighttpd:latest
+            bfren/lighttpd:${{ steps.version_major.outputs.contents }}
+            bfren/lighttpd:${{ steps.version_minor.outputs.contents }}
+            bfren/lighttpd:${{ steps.version.outputs.contents }}
+            bfren/lighttpd:lighttpd${{ steps.lighttpd_major.outputs.contents }}
+            bfren/lighttpd:lighttpd${{ steps.lighttpd_major.outputs.contents }}-${{ steps.version.outputs.contents }}
+            bfren/lighttpd:lighttpd${{ steps.lighttpd_minor.outputs.contents }}
+            bfren/lighttpd:lighttpd${{ steps.lighttpd_minor.outputs.contents }}-${{ steps.version.outputs.contents }}
+            bfren/lighttpd:lighttpd${{ steps.lighttpd_revision.outputs.contents }}
+            bfren/lighttpd:lighttpd${{ steps.lighttpd_revision.outputs.contents }}-${{ steps.version.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
