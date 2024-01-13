@@ -35,4 +35,4 @@ A simple Lighttpd base image - no SSL support etc, designed to be used behind a 
 
 ## Copyright
 
-> Copyright (c) 2023 [bfren](https://bfren.dev) (unless otherwise stated)
+> Copyright (c) 2023-2024 [bfren](https://bfren.dev) (unless otherwise stated)
